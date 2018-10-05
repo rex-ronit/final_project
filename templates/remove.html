@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Remove</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="static/css/index.css" />
+	</head>
+	<body class="homepage is-preload">
+		<div id="page-wrapper">
+
+			<header id="header">
+
+			</header>
+
+			<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li class="current"><a href="/">Home</a></li>
+						<li><a href="/share">Share</a></li>
+						<li><a href="/remove">Remove</a></li>
+						<li><a href="/about_us">About Us</a></li>
+						<li><a href="/logout">Log Out</a></li>
+
+
+					</ul>
+
+
+
+				</nav>
+				<br>
+
+<form action="/remove" method="post">
+ <div class="product">
+     <select name="book" autofocus class="form-control">
+            <option disabled selected value="">Select book to remove</option>
+					{% for row in rows %}
+    <option value="{{ row["bookname"] }}">{{ row["bookname"] }} by {{ row["author"] }}</option>
+            {% endfor %}
+            </select>
+</div>
+<br>
+
+<div class="buttonn">
+        <button class="buttonn" type="submit">Remove</button>
+        </div>
+        </form>
+
+
+				<!-- Footer -->
+				<footer id="footer">
+					<div class="container">
+						<div class="row gtr-200">
+							<div class="col-12">
+
+
+
+							</div>
+							<div class="col-12">
+
+								<!-- Contact -->
+									<section>
+										<h2 class="major"><span></span></h2>
+										<!--ul class="contact">
+											<li><a class="icon fa-facebook" href="#"><span class="label">Facebook</span></a></li>
+											<li><a class="icon fa-twitter" href="#"><span class="label">Twitter</span></a></li>
+											<li><a class="icon fa-instagram" href="#"><span class="label">Instagram</span></a></li>
+											<li><a class="icon fa-dribbble" href="#"><span class="label">Dribbble</span></a></li>
+											<li><a class="icon fa-linkedin" href="#"><span class="label">LinkedIn</span></a></li>
+										</ul-->
+									</section>
+
+							</div>
+						</div>
+
+
+
+					</div>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+
+			<script src="static/js/index.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,38 @@
+Hey, this is ShareMyBooks, a puny contribution to the cause of saving our planet which is in grave danger from homo sapiens.
+Really guys, how did we screw up so badly?
+
+You can buy/sell your old books at ShareMyBooks and save trees, which by the way really are important.
+
+How to run on CS50 IDE:
+
+Go to the directory project by running the following command in terminal window-
+
+            cd project
+
+Run the Web App by running following command-
+
+            flask run
+
+Click on the link generated and Enjoy!
+
+I assume you were not in a cave for last 50 years and can navigate through the simple interface of the web app.
+
+ShareMyBooks provides the following features-
+
+- You can register and login through your account.
+- You can browse all the books on the site.
+- You can search for books by title, author, type and more.
+- You can upload your own books for others to view and buy.
+- You can remove your books from the site.
+- You can save trees in doing so.
+
+
+
+Credits-
+
+First of all I would like to thank the whole CS50 staff for such an awesome course, specially Prof. David Malan for being a phenomenal teacher ,
+Doug Lloyd for informative shorts and Zamyla Chan for walkthroughs.
+CS50 is literally the best course I've ever taken.
+
+Templates were inspired and taken com HTMLUP
+Pictures from unsplash.com

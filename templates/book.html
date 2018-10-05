@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>{{ rows[0]["bookname"] }}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="static/css/book.css" />
+
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="divided">
+				<header class="warapper style1 align-center">
+
+						<li><a href="/" class="icon style2 fa-twitter">Home</a></li>
+
+					</header>
+
+				<!-- One -->
+					<section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+						<div class="content">
+							<h1>{{ rows[0]["bookname"] }}</h1>
+							<p class="major">
+								By {{ rows[0]["author"] }} <br>
+								Type: {{ rows[0]["type"] }} <br>
+								Subject: {{ rows[0]["subject"] }} <br>
+								Class: {{ rows[0]["class"] }} <br>
+								<br>
+								<b>Cost: &#8377 {{ rows[0]["cost"] }}</b> <br>
+								<br>
+								Owner's Info- <br>
+								Mobile: {{ rows[0]["mobile"] }} <br>
+								Email: {{ rows[0]["email"] }} <br>
+								City: {{ rows[0]["city"] }} <br>
+								State: {{ rows[0]["state"] }}
+
+								</p>
+
+						</div>
+						<div class="image">
+							<img src="/static/images/{{ rows[0]["img_name"] }}" alt="" />
+						</div>
+					</section>
+
+
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="static/js/jquery.min.js"></script>
+
+
+			<script src="static/js/breakpoints.min.js"></script>
+
+			<script src="static/js/book.js"></script>
+
+	</body>
+</html>

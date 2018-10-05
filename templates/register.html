@@ -1,0 +1,54 @@
+
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Register</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="static/css/login.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<h1>ShareMyBooks</h1>
+				<p>A website to share your books<br>
+						and save the environment<br>
+						<p>{{ error }}</p>
+			</header>
+
+			<form action="/register" method="post" id="signup-form">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text"/>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password"/>
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" name="confirmation" placeholder="Retype Password" type="password"/>
+        </div>
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+
+
+<footer id="footer">
+				<ul class="icons">
+					<!--li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li-->
+					<li>
+					    <a href="/login">
+					<button class="btn btn-primary" type="submit" action="/login">Login</button>
+				    </a>
+				    </li>
+				</ul>
+			</footer>
+
+
+<script src="static/js/main.js"></script>
+
+	</body>
+</html>
