@@ -9,6 +9,10 @@ from werkzeug.security import check_password_hash, generate_password_hash
 import os
 
 from helpers import apology, login_required, lookup, usd
+from werkzeug.utils import secure_filename
+
+UPLOAD_FOLDER = '/path/to/the/uploads'
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 
 
@@ -17,6 +21,8 @@ app = Flask(__name__)
 
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
+
+app.config['UPLOAD_FOLDER'] = "static/images"
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
@@ -91,9 +97,9 @@ def about_us():
 def buy():
     if request.method == "GET":
 
-        return render_template("share.html")
+        return render_template("share.html", er = "Hello, World!")
 
-    else:
+    elif request.method == "POST":
 
         # get all the values from form
 
@@ -112,18 +118,31 @@ def buy():
         subject = request.form.get("subject")
         clas = request.form.get("class")
         cost = request.form.get("cost")
-        pic = request.files.getlist("photo")
+        #pic = request.files("file")
 
-        tmp = [mobile, email, city, state, book, author, typee, subject, clas, cost, pic]
+        tmp = [mobile, email, city, state, book, author, typee, subject, clas, cost]
 
         for k in tmp:
             if not k:
-                return render_template("share.html")
+                 return render_template("share.html", er = str(k) + "Please fill all the required data")
 
-        for file in request.files.getlist("photo"):
-            filename = book + "_" + file.filename
-            destination = "/".join([target, filename])
-        file.save(destination)
+        # if 'file' not in request.files:
+        #     flash('No file part')
+        #     return render_template("share.html", er = "No file!")
+        file = request.files["pic"]
+
+        if file.filename == '':
+            flash('No selected file')
+            return render_template("share.html", er = "No file selcted!")
+        if file:
+            filename = secure_filename(book + "_" + file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
+
+        # for file in request.files.getlist("photo"):
+        #     filename = book + "_" + file.filename
+        #     destination = "/".join([target, filename])
+        # file.save(destination)
 
         img_name = filename
 
@@ -147,7 +166,7 @@ def quote():
         db.execute("DELETE from books where bookname = :name", name = bname)
         return redirect("/")
 
-@app.route("/<book_name>", methods=["GET", "POST"])
+@app.route("/<string:book_name>", methods=["GET", "POST"])
 @login_required
 def about(book_name):
     rows = db.execute("Select * from books where bookname = :book", book = book_name)

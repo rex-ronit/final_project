@@ -32,7 +32,9 @@
 
 <br>
 
-<form action="/share" method="post" id="signup-form" >
+       <p>{{ er }}</p>
+
+<form action="/share" method="post" id="signup-form" enctype="multipart/form-data">
 
 
 
@@ -117,13 +119,16 @@
             </select>
 
         <div class="form-group">
-            <input type ="file" autofocus class="form-control" placeholder="Picture" name = "photo" accept="image/*">
+            <input type ="file" autofocus class="form-control" placeholder="Picture" name = "pic" >
         </div>
 
 <br>
 
         <div class="buttonn">
-        <button class="current" type="submit">Issue</button>
+            <a href="/register">
+					<button class="btn btn-primary" type="submit" action="/share" method="post">Issue</button>
+				    </a>
+
         </div>
     </form>
 
